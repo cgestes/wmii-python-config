@@ -26,6 +26,14 @@ keys.defs = dict(
     down='j',
     up='k',
     right='l')
+#CTAF
+keys.defs = dict(
+    mod  = 'Mod4',
+    left = 'Left',
+    up   = 'Up',
+    down = 'Down',
+    right= 'Right')
+#ECTAF
 
 # Bars
 noticetimeout=5
@@ -46,6 +54,9 @@ def setbackground(color):
 setbackground(background)
 
 terminal = 'wmiir', 'setsid', 'xterm'
+#CTAF
+terminal = 'wmiir', 'setsid', 'gnome-terminal'
+#ECTAF
 pygmi.shell = os.environ.get('SHELL', 'sh')
 
 @defmonitor
@@ -272,6 +283,21 @@ keys.bind('resize', (
 ), import_={'main': ('%(mod)s-%(left)s', '%(mod)s-%(right)s',
                      '%(mod)s-%(up)s', '%(mod)s-%(down)s',
                      '%(mod)s-Space')})
+
+#CTAF
+def next_tag(t):
+    print "There you are"
+    tags = Tags()
+    tags.next()
+    #tag = [ x for x in wmii.tags ]
+    #current = Tag('sel').id
+
+
+keys.bind('main', (
+    "Changing tags",
+    ('%(mod)s-Control-$(left)s', "Previous tag", next_tag),
+    ))
+#ECTAF
 
 def addresize(mod, desc, cmd, *args):
     keys.bind('resize', (
