@@ -228,6 +228,16 @@ keys.bind('main', (
     ('%(mod)s-p',      "Open program menu",
         lambda k: program_menu()),
 
+    #CTAF
+    ('%(mod)s-F6', "Launch a browser",
+        lambda k: call(*navigator, background=True)),
+    #ECTAF
+
+    #CTAF
+    ('%(mod)s-F2', "Launch a browser",
+        lambda k: call(*terminal, background=True)),
+    #ECTAF
+
     ('%(mod)s-Return', "Launch a terminal",
         lambda k: call(*terminal, background=True)),
 
