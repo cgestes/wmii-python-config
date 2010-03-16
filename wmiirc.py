@@ -188,22 +188,25 @@ keys.bind('main', (
     ('%(mod)s-space',     "Toggle between floating and managed layers",
         lambda k: Tag('sel').select('toggle')),
 
+    #CTAF Control => Shift
     "Moving through stacks",
-    ('%(mod)s-Control-%(up)s',   "Select the stack above",
+    ('%(mod)s-Shift-%(up)s',   "Select the stack above",
         lambda k: Tag('sel').select('up', stack=True)),
-    ('%(mod)s-Control-%(down)s', "Select the stack below",
+    ('%(mod)s-Shift-%(down)s', "Select the stack below",
         lambda k: Tag('sel').select('down', stack=True)),
+    #ECTAF
 
-
+    #CTAF => Shift => Control
     "Moving clients around",
-    ('%(mod)s-Shift-%(left)s',  "Move selected client to the left",
+    ('%(mod)s-Control-%(left)s',  "Move selected client to the left",
         lambda k: Tag('sel').send(Client('sel'), 'left')),
-    ('%(mod)s-Shift-%(right)s', "Move selected client to the right",
+    ('%(mod)s-Control-%(right)s', "Move selected client to the right",
         lambda k: Tag('sel').send(Client('sel'), 'right')),
-    ('%(mod)s-Shift-%(up)s',    "Move selected client up",
+    ('%(mod)s-Control-%(up)s',    "Move selected client up",
         lambda k: Tag('sel').send(Client('sel'), 'up')),
-    ('%(mod)s-Shift-%(down)s',  "Move selected client down",
+    ('%(mod)s-Control-%(down)s',  "Move selected client down",
         lambda k: Tag('sel').send(Client('sel'), 'down')),
+    #ECTAF
 
     ('%(mod)s-Shift-space',     "Toggle selected client between floating and managed layers",
         lambda k: Tag('sel').send(Client('sel'), 'toggle')),
@@ -251,6 +254,15 @@ keys.bind('main', (
         lambda k: tags.select(tags.next())),
     ('%(mod)s-b', "Move to the view to the right",
         lambda k: tags.select(tags.next(True))),
+
+    #CTAF:
+    ('%(mod)s-Shift-%(right)s', "Move to the view to the left",
+        lambda k: tags.select(tags.next())),
+    ('%(mod)s-Shift-%(left)s', "Move to the view to the right",
+        lambda k: tags.select(tags.next(True))),
+    #CTAF:
+
+
     ('%(mod)s-Shift-n', "Move to the view to the left, take along current client",
         lambda k: tags.select(tags.next(), take_client=Client('sel'))),
     ('%(mod)s-Shift-b', "Move to the view to the right, take along current client",
@@ -295,21 +307,6 @@ keys.bind('resize', (
 ), import_={'main': ('%(mod)s-%(left)s', '%(mod)s-%(right)s',
                      '%(mod)s-%(up)s', '%(mod)s-%(down)s',
                      '%(mod)s-Space')})
-
-#CTAF
-def next_tag(t):
-    print "There you are"
-    tags = Tags()
-    tags.next()
-    #tag = [ x for x in wmii.tags ]
-    #current = Tag('sel').id
-
-
-keys.bind('main', (
-    "Changing tags",
-    ('%(mod)s-Control-$(left)s', "Previous tag", next_tag),
-    ))
-#ECTAF
 
 def addresize(mod, desc, cmd, *args):
     keys.bind('resize', (
