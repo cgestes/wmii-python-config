@@ -55,8 +55,10 @@ setbackground(background)
 
 terminal = 'wmiir', 'setsid', 'xterm'
 #CTAF
-terminal = 'wmiir', 'setsid', 'gnome-terminal'
+terminal  = 'wmiir', 'setsid', 'sakura'
+navigator = 'wmiir', 'setsid', 'chromium'
 #ECTAF
+
 pygmi.shell = os.environ.get('SHELL', 'sh')
 
 @defmonitor
