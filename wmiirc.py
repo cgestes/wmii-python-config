@@ -278,11 +278,24 @@ keys.bind('main', (
         lambda k: tags.select(tags.PREV, take_client=Client('sel'))),
 
 ))
+
+#CTAF
+def select_tag_idx(idx):
+    def the_real_select(k):
+        toto = [ x for x in wmii.tags ]
+        tags.select(toto[idx])
+    return the_real_select
+
 def bind_num(i):
     keys.bind('main', (
         "Tag actions",
-        ('%%(mod)s-%d' % i,       "Move to view '%d'" % i,
-            lambda k: tags.select(str(i))),
+        #CTAF COMMENT
+        #('%%(mod)s-%d' % i,       "Move to view '%d'" % i,
+        #    lambda k: tags.select(str(i))),
+        #ECTAF COMMENT
+        #CTAF
+        ('%%(mod)s-%d' % i,       "Move to view '%d'" % i, select_tag_idx(i)),
+        #ECTAF
         ('%%(mod)s-Shift-%d' % i, "Retag selected client with tag '%d'" % i,
             lambda k: setattr(Client('sel'), 'tags', i)),
     ))
