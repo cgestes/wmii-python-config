@@ -14,10 +14,10 @@ wmii['font']        = 'drift,-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*'
 
 wmii.tagrules = (
     ('MPlayer|VLC', '~'),
-    ('Emacs', 'sel + emacs'),
-    ('Git', 'sel + git'),
+    ('Emacs', 'sel + z_emacs'),
+    ('Git', 'sel + z_git'),
     ('Epiphany|Chromium|Firefox|Opera|Shiretoko', 'net'),
-    ('Terminal|.*Terminal', 'sel + term'),
+    ('Sakura', 'sel + z_term'),
 )
 
 print "Configuration loaded"
