@@ -44,8 +44,8 @@ background = '#333333'
 floatbackground='#222222'
 
 wmii['font'] = 'drift,-*-fixed-*-*-*-*-9-*-*-*-*-*-*-*'
-wmii['normcolors'] = '#000000', '#c1c48b', '#81654f'
-wmii['focuscolors'] = '#000000', '#81654f', '#000000'
+wmii['focuscolors'] = '#000000', '#c1c48b', '#81654f'
+wmii['normcolors'] = '#000000', '#81654f', '#000000'
 wmii['grabmod'] = keys.defs['mod']
 wmii['border'] = 2
 
