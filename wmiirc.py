@@ -55,7 +55,7 @@ setbackground(background)
 
 terminal = 'wmiir', 'setsid', 'xterm'
 #CTAF
-terminal  = 'wmiir', 'setsid', 'sakura'
+terminal  = 'wmiir', 'setsid', 'gnome-terminal'
 navigator = 'wmiir', 'setsid', 'chromium'
 #ECTAF
 
